@@ -9,8 +9,8 @@
 4. unzip the files from the model folder to the folder 'frozen_graph_faster_rcnn_inception'
 
 5. RUN --> 
-	python application.py
+	GUI :-
+	python application.py 
 
-	* if you want to test using images: crate a test_images folder and place images inside it and call the test_on_image function with coorect image name.
-
-	* if you want to test with video : crate data folder and place video inside it and call the run_video function with coorect video name. 
+	if you do not want to run it on GUI then :-
+	python run_without_gui.py
