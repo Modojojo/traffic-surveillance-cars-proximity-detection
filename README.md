@@ -18,4 +18,4 @@ This repository contains code for car detection which also alerts whenever any o
 ![Example](utils/working_example.png)
 
 <br/>
-The fact that it is not able to detect is because i used the pretrained model, i still have to train the models on the custom dataset so that it will be able to detect properly.
+The fact that it is not able to detect some of the cars is because i used the pretrained model, i still have to train the models on the custom dataset so that it will be able to detect properly.
