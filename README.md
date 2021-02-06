@@ -10,7 +10,12 @@ This repository contains code for car detection which also alerts whenever any o
 <br/>
 <h4>Remaining functionalities (To Add) :</h4>
   1. Alert whenever the cars are getting too close <br/>
-  2. Create a GUI
+  2. Create a GUI <br/>
+  3. Custom trained model
 <br/>
 <h4>Example (GUI)</h4>
-![](/utils/working_example.png)
+
+![Example](utils/working_example.png)
+
+<br/>
+The fact that it is not able to detect is because i used the pretrained model, i still have to train the models on the custom dataset so that it will be able to detect properly.
