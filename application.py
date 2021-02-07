@@ -6,13 +6,15 @@ from PyQt5.QtGui import QImage
 import cv2
 from utils import detection_utils
 
+# initializing global variables to store the detection graph and session
 detection_graph = None
 sess = None
 
-left_right = 20
-up_down = 20
-btn_height = 40
-btn_length = 180
+left_right = 20     # Left-right margin For video frame label
+up_down = 20        # up-Down Margin For vide frame label
+btn_height = 40     # button height
+btn_length = 180    # buttons length
+
 
 class Ui_MainWIndow(object):
 
@@ -71,6 +73,7 @@ class Ui_MainWIndow(object):
         self.btn_load_model.setText(_translate("MainWIndow", "Load Model"))
         self.btn_stop.setText(_translate("MainWIndow", "Stop"))
 
+    # Start button utility
     def on_click_start(self):
         self.worker1 = Worker1()
         self.worker1.start()
@@ -79,6 +82,7 @@ class Ui_MainWIndow(object):
         self.btn_stop.setEnabled(True)
         self.btn_start.setEnabled(False)
 
+    # Stop button utility
     def on_click_stop(self):
         _translate = QtCore.QCoreApplication.translate
         self.worker1.stop_running()
@@ -87,6 +91,7 @@ class Ui_MainWIndow(object):
         self.btn_stop.setEnabled(False)
         self.btn_start.setEnabled(True)
 
+    # Load image button utility
     def on_click_load_model(self):
         self.btn_load_model.setEnabled(False)
         global detection_graph, sess
@@ -99,6 +104,9 @@ class Ui_MainWIndow(object):
         self.frame.setPixmap(QtGui.QPixmap.fromImage(image))
 
 
+# Thread class which loads the video on the video_frame label of the window, Frame by Frame
+# Thread is needed because using a while loop is necessary to extract frames for cv2
+# and using a while loop inside window class will hang the program
 class Worker1(QThread):
     ImageUpdate = pyqtSignal(QImage)
     global detection_graph, sess
